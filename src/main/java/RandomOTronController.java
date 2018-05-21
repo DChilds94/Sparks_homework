@@ -14,16 +14,23 @@ public class RandomOTronController {
         VelocityTemplateEngine velocityTemplateEngine = new VelocityTemplateEngine();
         final RandomOTron randomOTron = new RandomOTron();
 
-        get("/one", (req, res) -> {
+        get("/", (req, res) -> {
             HashMap<String, Object> model = new HashMap<>();
-            model.put("name", randomOTron.shuffleNames());
+            model.put("names", randomOTron.getNames());
             return new ModelAndView(model, "RandomOTron.vtl");
         }, velocityTemplateEngine);
 
-//        get("/two", (req, res) -> {
+//        get("/one", (req, res) -> {
 //            HashMap<String, Object> model = new HashMap<>();
-//            model.put("")
-//        });
+//            model.put("name", randomOTron.shuffleNames());
+//            return new ModelAndView(model, "RandomOTron.vtl");
+//        }, velocityTemplateEngine);
+
+        get("/two", (req, res) -> {
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("name", randomOTron.shuffleTwoNames());
+            return  new ModelAndView(model, "RandomOTron.vtl");
+        }, velocityTemplateEngine);
     }
 
 }
