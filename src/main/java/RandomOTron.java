@@ -25,6 +25,7 @@ public class RandomOTron {
 
     public int countNamesInList(){
         return this.names.size();
+
     }
 
     public String shuffleNames(){
