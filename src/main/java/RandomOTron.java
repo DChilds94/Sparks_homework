@@ -23,6 +23,14 @@ public class RandomOTron {
         this.names = names;
     }
 
+    public ArrayList<String> getRandomNames() {
+        return randomNames;
+    }
+
+    public void setRandomNames(ArrayList<String> randomNames) {
+        this.randomNames = randomNames;
+    }
+
     public int countNamesInList(){
         return this.names.size();
 
@@ -34,15 +42,21 @@ public class RandomOTron {
         return result;
     }
 
-    public String shuffleTwoNames(){
+    public void shuffleTwoNames(){
         Collections.shuffle(names);
         String name1 = this.names.get(0);
         String name2 = this.names.get(1);
         this.randomNames.add(name1);
         this.randomNames.add(name2);
-        return name1 + name2;
-
     }
+
+    public String showRandomNames(){
+        shuffleTwoNames();
+        String name1 = this.randomNames.get(0);
+        String name2 = this.randomNames.get(1);
+        return name1 + " " + name2;
+    }
+
 
 
 }
