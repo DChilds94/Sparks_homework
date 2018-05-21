@@ -1,27 +1,46 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class RandomOTron {
-    ArrayList<String> name;
+    ArrayList<String> names;
+    ArrayList<String> randomNames;
 
     public RandomOTron() {
-        this.name = new ArrayList<String>();
-        name.add("Daniel");
-        name.add("Oliver");
-        name.add("Sophie");
-        name.add("Sydney");
-        name.add("Albert");
+        this.names = new ArrayList<String>();
+        this.randomNames = new ArrayList<String>();
+        names.add("Daniel");
+        names.add("Oliver");
+        names.add("Sophie");
+        names.add("Sydney");
+        names.add("Albert");
     }
 
-    public ArrayList<String> getName() {
-        return name;
+    public ArrayList<String> getNames() {
+        return names;
     }
 
-    public void setName(ArrayList<String> name) {
-        this.name = name;
+    public void setNames(ArrayList<String> names) {
+        this.names = names;
     }
 
     public int countNamesInList(){
-        return this.name.size();
+        return this.names.size();
+    }
+
+    public String shuffleNames(){
+        Collections.shuffle(names);
+        String result = this.names.get(0);
+        return result;
+    }
+
+    public String shuffleTwoNames(){
+        Collections.shuffle(names);
+        String name1 = this.names.get(0);
+        String name2 = this.names.get(1);
+        this.randomNames.add(name1);
+        this.randomNames.add(name2);
+        return name1 + name2;
+
     }
 
 
